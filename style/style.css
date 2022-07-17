@@ -1,0 +1,451 @@
+/*GENERAL STYLE*/
+body {
+    margin: 0;
+    font-family: Calibri;
+    font-size: 100%;
+}
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+}
+/*HEADER*/
+.header {
+    background-color: white;
+    position: fixed;
+    z-index: 101;
+    width: 100%;
+    padding: 10px 1em;
+    border: 10px;
+    display: flex;
+    justify-content: space-between;
+    outline: solid 3px darkgrey;
+    align-items: center;
+}
+.header>div:first-child,
+.header>div:last-child {
+    flex: 0 0 30%;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    color: orange;
+    white-space: nowrap;
+}
+.name a{
+    display: block;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: orange;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    flex: 0 0 40%;
+}
+.search>button {
+    background-color: lightgrey;
+    height: 2.5em;
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.search button:hover {
+    background-color: darkgrey;
+}
+.search .fa-microphone,
+.fa-bell {
+    margin-left: 0.5em;
+    color: lightgrey;
+}
+.search input{
+    width: 100%;
+    height: 2.5em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.search input:focus {
+    border: solid 3px black;
+}
+.action-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1em;
+}
+.fa-microphone:hover,
+.fa-bell:hover {
+    color: darkgrey;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: orange;
+    color: black;
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
+    border-radius: 50%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    border-radius: 1em;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content>a:first-child{
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+}
+.dropdown-content>a:last-child{
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+#profile::before {
+    padding-right: 0.5em;
+    content: "\f1b0";
+    font-family: FontAwesome;
+    font-size:1em;
+}
+#setting::before {
+    padding-right: 0.5em;
+    content: "\f013";
+    font-family: FontAwesome;
+    font-size:1em;
+}
+#log-out::before {
+    padding-right: 0.5em;
+    content: "\f2f5";
+    font-family: FontAwesome;
+    font-size:1em;
+}
+
+#log-out {
+    color: red;
+    border-top: solid lightgrey 2px;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: lightgrey;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: lightgrey;}
+
+/*LEFT SIDE*/
+
+.left-side {
+    height: 100%;
+    width: 15em;
+    top: 4.2em;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    background-color: lightgrey;
+    overflow-x: hidden;
+    border-top: solid darkgrey 3px;
+}
+
+.streamer-list-container{
+    min-height: calc(100vh - 15em);
+    max-height: 65%;
+    overflow: overlay;
+}
+.streamer-list-container::-webkit-scrollbar{
+    background-color: transparent;
+    width: 5px;
+    border-radius: 1px;
+}
+
+.streamer-list-container::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: grey;
+}
+
+
+.streamer-list{
+    padding-inline-start: 0;
+    margin: 0;
+    list-style-type: none;
+
+}
+.streamer-list-item{
+    display: flex;
+    float: left;
+    align-items: center;
+    width: 100%;
+    padding: 10px 5px;
+}
+.streamer-list-item img{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+}
+.streamer-list-item a,
+.streamer-list-item span{
+    margin: 0 0.3em;
+    font-size: 1.3em;
+}
+.streamer-list-item a{
+    flex-grow: 1;
+}
+.streamer-list-item a:hover{
+    color: dodgerblue;
+}
+.streamer-list-item:hover{
+    background-color: darkgrey;;
+}
+
+.red-circle {
+    background: darkred;
+    border-radius: 100%;
+    width: 0.4em;
+    height: 0.4em;
+    animation: pulsing 2s infinite;
+}
+@keyframes pulsing {
+    0% {
+        box-shadow: 0 0 darkred;
+    }
+    75%{
+        box-shadow: 0 0 0.5em 0.1em darkred;
+    }
+    100% {
+        box-shadow: 0 0 0.5em 0.1em transparent;
+    }
+}
+
+
+.social-media-container {
+    border-top: 1px solid white;
+}
+.social-media {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 8em;
+    margin: 1em;
+    background-color: darkgrey;
+
+
+}
+
+.social-media p{
+    font-size: 1.2em;
+    text-align: center;
+}
+.social-media-icons{
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+.social-media-icons>a:hover{
+    color: dodgerblue;
+}
+
+
+/*MAIN*/
+main {
+    min-height: calc(100vh - 3em);
+    padding-top: 4.2em;
+    margin-left: 15em;
+    z-index: 10;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+.filter-container {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 1em;
+}
+
+.btn {
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid grey;
+    padding: 0.2em 0.5em;
+    border-radius: 1em;
+    margin-right: 1em;
+    font-size: large;
+}
+.btn-active {
+    border: 1px solid orange;
+    background-color: orange;
+    color: white;
+}
+.btn:hover {
+    background-color: darkgrey;
+}
+
+.video-galery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 0.5em;
+    margin: 1em;
+    margin-top: 0;
+}
+.video-galery-item {
+    display: flex;
+    flex-direction: column;
+}
+.video-container {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+.video-container>img {
+    width: 100%;
+    height: auto;
+}
+.live {
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    color: white;
+    background-color: red;
+    border-radius: 3px;
+    padding: 1px 3px;
+    font-size: 1em;
+    z-index: 100;
+}
+.paw{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    color: lightgrey;
+    opacity: 0;
+}
+.viewers-times {
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding: 1px 3px;
+    z-index: 100;
+}
+.video-container:hover .paw{
+    font-size: 3em;
+    opacity: 1;
+    z-index: 100;
+}
+
+
+.video-container:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0.3em;
+    background: rgba(0,0,0,.2);
+    opacity: 0;
+}
+.video-container:hover:after {
+    opacity: 1;
+}
+
+.video-descriptions {
+    display: flex;
+    align-items: center;
+}
+.video-descriptions img {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
+
+.video-descriptions-text {
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+    padding-right: 5px;
+}
+.video-descriptions-text a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-descriptions-text a,
+.video-descriptions a {
+    color: black;
+    font-size: 1.5em;
+
+}
+.video-descriptions-text a:hover {
+    color: dodgerblue;
+}
+.video-descriptions-text span:last-child {
+    color: darkgrey;
+}
+.fa-ellipsis-vertical {
+    margin-right: 0.3em;
+}
+/*FOOTER*/
+footer {
+    margin-left: 15em;
+    height: 3em;
+    position: relative;
+    text-align: center;
+}
+.footer {
+    white-space: nowrap;
+}
+.footer i:hover{
+    color: red;
+}
+.footer span{
+    font-size: 1.2em;
+}
+@media only screen and (max-width: 1000px) {
+    .left-side {
+        width: 3.25em;
+    }
+    .streamer-list-container{
+        max-height: 100%;
+        overflow: visible;
+    }
+    .social-media-container {
+        display: none;
+    }
+    main {
+        margin-left: 3.25em;
+    }
+    footer {
+        margin-left: 3.25em;
+    }
+}
